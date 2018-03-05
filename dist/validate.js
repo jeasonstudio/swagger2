@@ -102,6 +102,9 @@ function request(compiledPath, method, query, body, headers, pathParameters) {
                 break;
             case 'formData':
                 value = (body || {})[parameter.name];
+                if (!isNaN(value)) {
+                    value = +value;
+                }
                 bodyDefined = true;
                 break;
             default:

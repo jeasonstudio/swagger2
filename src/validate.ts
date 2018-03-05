@@ -158,6 +158,7 @@ export function request(compiledPath: CompiledPath | undefined,
         break;
       case 'formData':
         value = (body || {})[parameter.name];
+        if (!isNaN(value)) { value = +value; }
         bodyDefined = true;
         break;
       default:
